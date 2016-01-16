@@ -1,5 +1,5 @@
-import Excel.Excel;
-import Txt.Txt;
+import excel.Excel;
+import txt.Txt;
 import data.Data;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;

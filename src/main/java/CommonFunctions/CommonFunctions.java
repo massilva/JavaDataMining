@@ -1,4 +1,4 @@
-package CommonFunctions;
+package commonfunctions;
 
 public class CommonFunctions {
 

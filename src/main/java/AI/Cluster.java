@@ -1,4 +1,4 @@
-package AI;
+package ai;
 
 import java.io.File;
 import java.io.IOException;

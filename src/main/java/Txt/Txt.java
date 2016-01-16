@@ -1,4 +1,4 @@
-package Txt;
+package txt;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

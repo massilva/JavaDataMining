@@ -1,8 +1,8 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
-import AI.Classificator;
-import AI.Cluster;
+import ai.Classificator;
+import ai.Cluster;
 import net.sf.javaml.classification.Classifier;
 import net.sf.javaml.clustering.SOM.GridType;
 import net.sf.javaml.clustering.SOM.LearningType;
