@@ -2,11 +2,13 @@ package Excel;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -16,7 +18,7 @@ import data.Data;
 
 public class Excel {
 
-	String path;
+	private String path;
 
 	public Excel(String path) {
 		this.path=path;
@@ -70,8 +72,35 @@ public class Excel {
 	}
 
 	public void writeData(Data data, boolean onlyNumbers) {
-		// TODO Auto-generated method stub
-		
+		try {
+			File file = new File(path);
+			if(!file.exists()) {
+			    file.createNewFile();
+			} 
+			FileOutputStream fOutputStream = new FileOutputStream(file);
+			org.apache.poi.ss.usermodel.Workbook workbook = new HSSFWorkbook();
+			org.apache.poi.ss.usermodel.Sheet sheet = workbook.createSheet("Sheet1");
+			ArrayList<ArrayList> dataList = data.getData();
+			for(int i = 0; i < dataList.size(); i++){
+				Row row = sheet.createRow(i);
+				for(int j = 0; j < dataList.get(i).size(); j++){
+					row.createCell(j);
+					if(onlyNumbers){
+						row.getCell(j).setCellValue(Double.parseDouble((String)dataList.get(i).get(j)));
+					}else{
+						row.getCell(j).setCellValue((String) dataList.get(i).get(j));	
+					}
+				}
+			}
+			workbook.write(fOutputStream);
+			workbook.close();
+			fOutputStream.close();
+			workbook = null;
+			file = null;
+			sheet = null;
+		} catch (EncryptedDocumentException | IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
