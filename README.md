@@ -34,9 +34,5 @@ Sure! There is still a lot to do and anybody willing to contribute is welcome
 ### How do I compile the project? ###
 
 - Download the source code.
-- Import to Eclipse workspace (Netbeans or any other should work fine too)
-- Add missing libraries to build path: (find them in "dependencies" folder)
-   - javaml-0.1.7.jar
-   - poi-3.13-20150929.jar
-   - poi-ooxml-3.13-20150929.jar
+- Import the maven project into your favorite IDE.
 
